@@ -113,13 +113,20 @@ export default function App() {
         </nav>
       </header>
 
-      {/* 2. Hero Slider Section - Premium Organia-Inspired Carousel */}
+      {/* 2. Hero Slider Section - Premium Organia-Inspired Terracotta Overlay Carousel */}
       <section 
         className="hero-slider" 
         id="home"
         onMouseEnter={() => setIsAutoplay(false)}
         onMouseLeave={() => setIsAutoplay(true)}
       >
+        {/* Floating gold ornaments everywhere around the slider */}
+        <img src="/cropped_elements/element_1.png" className="slider-decor-corner-left" alt="" />
+        <img src="/cropped_elements/element_1.png" className="slider-decor-corner-right" alt="" />
+        <img src="/cropped_elements/element_3.png" className="slider-decor-leaf-left" alt="" />
+        <img src="/cropped_elements/element_13.png" className="slider-decor-leaf-right" alt="" />
+        <div className="slider-decor-sparkles" style={{ backgroundImage: "url('/cropped_elements/element_25.png')" }}></div>
+
         <div className="hero-slider-inner">
           {HERO_SLIDES.map((slide, index) => {
             const isActive = index === activeSlide
@@ -128,32 +135,25 @@ export default function App() {
                 key={index} 
                 className={`hero-slide ${isActive ? 'active' : ''}`}
               >
-                {/* Organia style floating gold background ornaments */}
-                <div className="hero-slide-sparkles" style={{ backgroundImage: "url('/cropped_elements/element_25.png')" }}></div>
-                <img src="/cropped_elements/element_3.png" className="hero-slide-leaf-left" alt="" />
-                <img src="/cropped_elements/element_13.png" className="hero-slide-leaf-right" alt="" />
-                
+                {/* Background image container with Ken Burns effect class */}
+                <div 
+                  className="hero-slide-bg-image" 
+                  style={{ backgroundImage: `url('${slide.image}')` }}
+                ></div>
+                <div className="hero-slide-overlay-shade"></div>
                 <div className="container hero-slide-container">
-                  <div className="hero-slide-grid">
-                    <div className="hero-slide-content">
-                      <span className="hero-slide-tag">{slide.tag}</span>
-                      <h2 className="hero-slide-title">{slide.title}</h2>
-                      <p className="hero-slide-subtitle">{slide.subtitle}</p>
-                      <a href={slide.link} className="hero-slide-btn">
-                        VIEW LOOKBOOK
-                        <span className="hero-slide-btn-arrow">
-                          <svg viewBox="0 0 24 24" width="16" height="16" fill="none">
-                            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
-                        </span>
-                      </a>
-                    </div>
-                    
-                    <div className="hero-slide-img-col">
-                      <div className="hero-slide-img-frame">
-                        <img src={slide.image} alt={slide.title} className="hero-slide-main-img" />
-                      </div>
-                    </div>
+                  <div className="hero-overlay">
+                    <span className="hero-slide-tag">{slide.tag}</span>
+                    <h2 className="hero-title">{slide.title}</h2>
+                    <p className="hero-subtitle">{slide.subtitle}</p>
+                    <a href={slide.link} className="hero-slide-btn-simple">
+                      VIEW LOOKBOOK
+                      <span className="hero-slide-btn-arrow-simple">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none">
+                          <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </span>
+                    </a>
                   </div>
                 </div>
               </div>
