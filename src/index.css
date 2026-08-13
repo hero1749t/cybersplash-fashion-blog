@@ -218,208 +218,26 @@ button {
   color: var(--color-white);
 }
 
-/* Hero Slider - Organia-inspired Terracotta Overlay Carousel with Ken Burns Zoom */
+/* Hero Slider - Organia-inspired Carousel with Wallpaper Background Layer */
 .hero-slider {
   position: relative;
-  height: 600px;
+  height: 620px;
   width: 100%;
   overflow: hidden;
-  background-color: #f7f3eb;
+  background-color: #f7f3eb; /* Warm cream background */
+  background-image: radial-gradient(rgba(0,0,0,0.015) 1px, transparent 0);
+  background-size: 24px 24px; /* Paper texture feel */
 }
 
-.hero-slider-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.hero-slide {
+/* Background Wallpaper Layer - leaf/sparkle designs are printed underneath */
+.slider-bg-wallpaper {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), visibility 1.2s;
   z-index: 1;
-}
-
-.hero-slide.active {
-  opacity: 1;
-  visibility: visible;
-  z-index: 2;
-}
-
-/* Background image container with continuous slow zoom */
-.hero-slide-bg-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center 15%; /* Focused vertically to show models faces */
-  z-index: 1;
-  transform: scale(1);
-}
-
-@keyframes kenBurnsEffect {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.08);
-  }
-}
-
-.hero-slide.active .hero-slide-bg-image {
-  animation: kenBurnsEffect 10s ease-out forwards;
-}
-
-.hero-slide-overlay-shade {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.08); /* Subtle shade for layout depth */
-  z-index: 2;
-}
-
-.hero-slide-container {
-  position: relative;
-  z-index: 3;
-  width: 100%;
-  height: 100%;
-}
-
-/* Terracotta Overlay Block - matching the static hero columns style */
-.hero-overlay {
-  position: absolute;
-  bottom: 50px;
-  left: 80px;
-  width: 440px;
-  background-color: rgba(182, 137, 115, 0.85); /* Terracotta overlay block */
-  padding: 35px 30px;
-  color: var(--color-white);
-  z-index: 5;
-  border-radius: 2px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-  
-  /* Initial state for layered entry animation */
-  transform: translateY(35px);
-  opacity: 0;
-  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.3s, opacity 1.2s ease 0.3s;
-}
-
-.hero-slide.active .hero-overlay {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.hero-slide-tag {
-  display: inline-block;
-  font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #f7f3eb; /* Gold tint white */
-  margin-bottom: 12px;
-}
-
-.hero-title {
-  font-family: var(--font-serif);
-  font-size: 38px;
-  font-weight: 400;
-  line-height: 1.25;
-  color: var(--color-white);
-  margin-bottom: 12px;
-}
-
-.hero-subtitle {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 16px;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 25px;
-}
-
-.hero-slide-btn-simple {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--color-white);
-  border-bottom: 1.5px solid var(--color-white);
-  padding-bottom: 4px;
-  transition: var(--transition-smooth);
-}
-
-.hero-slide-btn-simple:hover {
-  color: #f7f3eb;
-  border-color: #f7f3eb;
-}
-
-.hero-slide-btn-arrow-simple {
-  display: inline-flex;
-  transition: var(--transition-smooth);
-}
-
-.hero-slide-btn-simple:hover .hero-slide-btn-arrow-simple {
-  transform: translateX(4px);
-}
-
-/* Floating Gold Ornaments around the slider */
-.slider-decor-corner-left {
-  position: absolute;
-  left: 20px;
-  top: 20px;
-  width: 90px;
-  height: auto;
-  opacity: 0.85;
   pointer-events: none;
-  z-index: 5;
-}
-
-.slider-decor-corner-right {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  width: 90px;
-  height: auto;
-  opacity: 0.85;
-  pointer-events: none;
-  transform: scaleX(-1);
-  z-index: 5;
-}
-
-.slider-decor-leaf-left {
-  position: absolute;
-  left: 25px;
-  bottom: 25px;
-  width: 140px;
-  height: auto;
-  opacity: 0.85;
-  pointer-events: none;
-  z-index: 5;
-}
-
-.slider-decor-leaf-right {
-  position: absolute;
-  right: 25px;
-  top: 25%;
-  width: 130px;
-  height: auto;
-  opacity: 0.85;
-  pointer-events: none;
-  z-index: 5;
 }
 
 .slider-decor-sparkles {
@@ -432,8 +250,191 @@ button {
   background-position: center;
   opacity: 0.06;
   mix-blend-mode: multiply;
-  pointer-events: none;
-  z-index: 4;
+  z-index: 1;
+}
+
+.slider-decor-leaf-left {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  width: 150px;
+  height: auto;
+  opacity: 0.85;
+  z-index: 1;
+}
+
+.slider-decor-leaf-right {
+  position: absolute;
+  right: 20px;
+  top: 15%;
+  width: 140px;
+  height: auto;
+  opacity: 0.85;
+  z-index: 1;
+}
+
+.hero-slider-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Sits on top of the background wallpaper */
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), visibility 1.2s;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 3;
+}
+
+.hero-slide-container {
+  position: relative;
+  z-index: 5; /* Ensures slide content is fully on top, above background leaves */
+  width: 100%;
+  padding: 0 80px;
+}
+
+.hero-slide-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slide-content {
+  color: #111111;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(25px);
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s, opacity 0.8s ease 0.3s;
+}
+
+.hero-slide.active .hero-slide-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-slide-tag {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 15px;
+}
+
+.hero-slide-title {
+  font-family: var(--font-serif);
+  font-size: 54px;
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--color-pink);
+  margin-bottom: 18px;
+}
+
+.hero-slide-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #4a4a4a;
+  margin-bottom: 30px;
+}
+
+.hero-slide-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--color-pink);
+  color: var(--color-white);
+  padding: 16px 36px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  border-radius: 50px;
+  transition: var(--transition-smooth);
+  box-shadow: 0 8px 24px rgba(211, 125, 151, 0.25);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.9s, opacity 0.8s ease 0.9s, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-slide.active .hero-slide-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-slide-btn:hover {
+  background-color: var(--color-pink-hover);
+  box-shadow: 0 12px 30px rgba(211, 125, 151, 0.4);
+  transform: translateY(-2px);
+}
+
+.hero-slide-btn-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: var(--color-white);
+  color: var(--color-pink);
+  border-radius: 50%;
+  transition: var(--transition-smooth);
+}
+
+.hero-slide-btn:hover .hero-slide-btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Image column styles showing full outfit cleanly on top without cropping */
+.hero-slide-img-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.hero-slide-img-frame {
+  position: relative;
+  max-height: 520px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border: 4px solid var(--color-white);
+  transform: scale(0.9) translateY(15px);
+  opacity: 0;
+  transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.4s;
+  z-index: 5; /* Renders cleanly above any background wallpaper designs */
+}
+
+.hero-slide.active .hero-slide-img-frame {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.hero-slide-main-img {
+  max-height: 500px;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 /* Slider Controls Styles */
@@ -1759,22 +1760,29 @@ button {
 /* Responsive Styles */
 @media (max-width: 992px) {
   .hero-slider {
-    height: 480px;
+    height: 720px;
   }
   
-  .hero-overlay {
-    left: 40px;
-    bottom: 40px;
-    width: 360px;
-    padding: 25px;
+  .hero-slide-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
   }
   
-  .hero-title {
-    font-size: 28px;
+  .hero-slide-content {
+    text-align: center;
+  }
+  
+  .hero-slide-title {
+    font-size: 38px;
+  }
+  
+  .hero-slide-img-frame {
+    max-height: 380px;
   }
   
   .hero-slide-container {
-    padding: 0 40px;
+    padding: 0 30px;
   }
   
   .category-row, .stories-grid, .categories-grid, .instagram-grid, .fashion-edit-grid {
@@ -1821,15 +1829,12 @@ button {
     grid-template-columns: 1fr;
   }
   
-  .hero-overlay {
-    left: 20px;
-    bottom: 20px;
-    width: calc(100% - 40px);
-    padding: 20px;
+  .hero-slide-title {
+    font-size: 30px;
   }
   
-  .hero-title {
-    font-size: 22px;
+  .hero-slide-subtitle {
+    font-size: 16px;
   }
   
   .hero-article-title {
