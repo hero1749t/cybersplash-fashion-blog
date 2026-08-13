@@ -34,7 +34,10 @@
 body {
   font-family: var(--font-sans);
   color: var(--color-text-body);
-  background-color: var(--color-white);
+  background-color: #fbf9f5;
+  background-image: radial-gradient(rgba(179, 146, 90, 0.05) 1.5px, transparent 1.5px), radial-gradient(rgba(179, 146, 90, 0.05) 1.5px, #fbf9f5 1.5px);
+  background-size: 36px 36px;
+  background-position: 0 0, 18px 18px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -79,7 +82,7 @@ button {
 .header-container {
   text-align: center;
   padding: 40px 0 10px;
-  background-color: var(--color-white);
+  background-color: transparent;
   position: relative;
   overflow: visible; /* Allow decorative elements to flow nicely */
 }
@@ -734,13 +737,14 @@ button {
 /* Hero Article (The Return of Effortless Elegance) */
 .hero-article-section {
   text-align: center;
-  background-color: var(--color-white);
+  background-color: transparent;
   padding: 90px 0 60px;
   position: relative;
 }
 
 .hero-article-content-wrapper {
   position: relative;
+  z-index: 5;
   max-width: 800px;
   margin: 0 auto;
   padding: 20px 0;
@@ -1219,7 +1223,7 @@ button {
 
 /* About Cybersplash */
 .about-section {
-  background-color: var(--color-white);
+  background-color: transparent;
   padding: 100px 0;
   position: relative;
   overflow: hidden;
@@ -1320,7 +1324,7 @@ button {
 
 /* Instagram Feed */
 .instagram-section {
-  background-color: var(--color-white);
+  background-color: transparent;
   padding: 80px 0;
   text-align: center;
   position: relative;
@@ -1430,7 +1434,7 @@ button {
 
 /* Daily Inspiration Banner */
 .inspiration-banner {
-  background-color: var(--color-white);
+  background-color: transparent;
   padding: 80px 20px;
   text-align: center;
   position: relative;
@@ -1488,7 +1492,7 @@ button {
 
 /* The Fashion Edit & Newsletter Section */
 .fashion-edit-section {
-  background-color: var(--color-white);
+  background-color: transparent;
   padding: 80px 0;
 }
 
@@ -1815,7 +1819,7 @@ button {
     width: 100%;
   }
   
-  .about-decor-far-right, .insta-decor-left, .insta-decor-right, .inspiration-decor-left, .inspiration-decor-right {
+  .about-decor-far-right, .insta-decor-left, .insta-decor-right, .inspiration-decor-left, .inspiration-decor-right, .article-decor-left, .article-decor-right {
     display: none;
   }
 }
